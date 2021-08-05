@@ -1,0 +1,47 @@
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('img/carhero.jpg');
+    background-size: cover;
+    background-position: bottom;
+
+}
+
+#hero .container {
+    height: 80vh;
+
+}
+
+.generic {
+    padding: 90px;
+}
+
+.img-fluid:hover {
+    box-shadow: gainsboro 3px 3px 3px 3px;
+}
+
+.minimizable {
+    width: 80%;
+    margin: 30px auto;
+
+}
+
+.collapsible {
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+.collapsible:hover {
+    background-color: bisque;
+}
+
+.content {
+    display: none;
+}
+
+
+  
+  
