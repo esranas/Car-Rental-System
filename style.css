@@ -1,0 +1,109 @@
+.body{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(54, 62, 69, 0.5)), url('images/indexcar.jpg')  ;
+    background-size: cover;
+    background-position: left;
+}
+.leftside,.rightside{
+height: 100vh;
+width: 100%;
+}
+ .leftside p{
+     position: relative;
+     top: 170px;
+     left: 300px;
+     font-size: 35px;
+    text-align: center;
+    color: white;
+
+    
+
+}
+/* .rightside{
+    
+} */ 
+.btn{
+    display: inline-block;
+    font-size:14px;
+    line-height: 120%;
+    color: #FFF;
+    background-color:transparent ;
+    border: 1px solid #FFF;
+    padding: 10px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color ease 400ms;
+
+}
+.btn:hover{
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* SIGN UP  AND LOGIN PAGE */
+.card{
+    position: relative;
+    top: 120px;
+    left: 800px;
+
+    background-color:transparent ;
+
+   
+
+}
+.card-body p{
+    color: white;
+}
+.card-header{
+    color: white;
+}
+.form-group{
+    background: none;
+}
+.form-group label{
+color: white;
+}
+.form-group input{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+
+}
+.form-group input:focus{
+    background-color: transparent;
+}
+
+/* WElCOME PAGE */
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('images/hero.jpg');
+    background-size: cover;
+    background-position: bottom;
+
+}
+#hero .container {
+    height: 80vh;
+
+}
+.minimizable {
+    width: 80%;
+    margin: 30px auto;
+
+}
+
+.collapsible {
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+.collapsible:hover {
+    background-color: bisque;
+}
+
+.content {
+    display: none;
+}
