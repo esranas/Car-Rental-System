@@ -1,0 +1,54 @@
+.void{
+    width: 30%;
+    height: 460px;
+    background-color: white;
+    float: left;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 2px rgba(20, 23, 28, 0.15);
+
+}
+  .reservationCart{
+      border: 2px solid;
+      border-radius:5px ;
+      background-color: #F3F1F5;
+      
+  }
+  i{
+      size: 20px;
+  }
+  #checkbox{
+      position: relative;
+      left: 5px;
+      
+  }
+  .cancel{ 
+      background-color: white;
+      border: none;
+      position: relative;
+      left: 100px;
+      top: 192px;
+  }
+  .label{
+      position: relative;
+   left: 5px; 
+   font-family: 'Mate SC', serif; 
+  }
+#purpose{
+   width: 90%;
+   position: relative;
+   left: 5px;
+   background-color: transparent;
+   font-family: 'Mate SC', serif;
+}
+#pickUpDate{
+  width: 90%;
+   position: relative;
+   left: 5px; 
+   background-color: transparent;
+   font-family: 'Mate SC', serif;
+}
+#reserve{
+  position: relative;
+   left: 5px; 
+}

@@ -2,8 +2,6 @@
 require_once "session.php";
 require_once 'config.php';
 require_once  'component.php';
-
-
 require_once 'navbar.php';
 
 
@@ -48,7 +46,7 @@ if(isset($_SESSION['cart'])){
             'carID' => $_POST['carID']
     );
 
-    // Create new session variable
+    
     $_SESSION['cart'][0] = $item_array;
     // print_r($_SESSION['cart']);
 }
@@ -85,7 +83,7 @@ if(isset($_SESSION['cart'])){
     <div class="reserved-car">
         <a href="reservation.php" class="rounded">
             
-                <i class="fas fa-car-side"></i>
+                <i class="fas fa-car-side"> </i>
             
             <?php
             if(isset($_SESSION['cart'])){
@@ -102,16 +100,27 @@ if(isset($_SESSION['cart'])){
 
 </html>
 <style>
+   
+    i{
+        color: black;
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
 .reserved-car{
+border:2px solid black;
+border-radius: 5px;
+background-color: #F3F1F5;
 font-size: 25px;
 text-align: center;
-border: 1px solid black;
-border-radius: 20%;
-height: 55px;
-width: 60px;
-position: fixed;
-    bottom: 10px;
-    right: 10px; 
+height: 40px;
+width: 90px;
+position: absolute;
+    top: 10px;
+    right: 35px; 
 }
-
+.card-shadow{
+    background-color: #F3F1F5;
+}
 </style>

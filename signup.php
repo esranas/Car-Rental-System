@@ -1,74 +1,3 @@
-<?php
-require_once "config.php";
-require_once "session.php";
-require_once 'header.php';
-
-
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
-
-$fullName = trim($_POST['fullName']);
-$email = trim($_POST['email']);
-$phone= trim($_POST['phone']);
-$password = trim($_POST['password']);
-$confirm_password = trim($_POST['confirm_password']);
-
-
-if($query = $db -> prepare("SELECT * FROM users WHERE email =? ")){
-    $error ='';
-    //bind parameters (s = string), in our case the username is a string so we use "s"
-    $query->bind_param('s',$email); 
-    $query -> execute();
-    //store the result so we can check if the account exists in the database
-    $query->store_result();
-   
-    if($query->num_rows >0){
-        $error .= '<p>the email address is already registered!</p>';
-        echo $error;
-    } else{
-        //validate password
-        if(strlen($password)< 6){
-            $error .= '<p>Password must be at least 6 characters.</p>';
-            echo $error;
-        }
-        if(empty($confirm_password)){
-            $error .= '<p>Please enter password again to confirm.</p>';
-            echo $error;
-        }else{
-            if(empty($error) && ($password != $confirm_password)){
-                $error .= '<p>Password did not match.</p>';
-            echo $error;
-            }
-        }
-         if(empty($error)){
-            $insertQuery = $db ->prepare("INSERT INTO users (name,email,phone,password) VALUES (?,?,?,?);");
-
-            $insertQuery->bind_param("ssss",$fullName,$email,$phone,$password);
-            
-            $result=$insertQuery->execute();
-            
-            if($result){
-                $error.= '<p>your registration is successful!</p>';
-                echo $error;
-            }
-            else{
-                $error.= '<p>something went wrong!</p>';
-                echo $error;
-            }
-
-            $insertQuery->close();
-        }
-    }
-
-}
-$query->close();
-
-//close db connection
-mysqli_close($db);
-
-}
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -112,12 +41,13 @@ mysqli_close($db);
                                 <label for="confirm_password"> Confirm Password</label>
                                 <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
                             </div>
+                            
                             <div class="form-group">
                                 <br>
-                                <button class="btn btn-primary btn-block btn-md" type="submit" name="submit">Sign Up</button>
+                                <button class="btn  btn-block btn-md" type="submit" name="submit">Sign Up</button>
                             </div>
                         </form>
-                       <p>Already have an account? <a href="login.php">Login here</a></p>
+                       <p>Already have an account? <a href="login.php" class="link">Login here</a></p>
                     </div>
                 </div>
             </div>
@@ -126,3 +56,80 @@ mysqli_close($db);
 </body>
 
 </html>
+<?php
+require_once 'header.php';
+require_once "config.php";
+require_once "session.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
+
+$fullName = trim($_POST['fullName']);
+$email = trim($_POST['email']);
+$phone= trim($_POST['phone']);
+$password = trim($_POST['password']);
+$confirm_password = trim($_POST['confirm_password']);
+
+
+if($query = $db -> prepare("SELECT * FROM users WHERE email =? ")){
+    $error ='';
+    //bind parameters (s = string), in our case the username is a string so we use "s"
+    $query->bind_param('s',$email); 
+    $query -> execute();
+    //store the result so we can check if the account exists in the database
+    $query->store_result();
+   
+    if($query->num_rows >0){
+        
+        echo "<div class=' alert alert-danger' > the email is already registered.</div>";
+    } else{
+        //validate password
+        if(strlen($password)< 6){
+            
+            echo "<div class=' alert alert-danger' > Password must be at least 6 characters.</div>";
+        }
+        if(empty($confirm_password)){
+            
+            echo "<div class=' alert alert-danger' > Please enter password again to confirm.</div>";
+        }else{
+            if(empty($error) && ($password != $confirm_password)){
+           
+            echo "<div class=' alert alert-danger' > Password did not match.</div>";
+            }
+        }
+         if(empty($error)){
+            $insertQuery = $db ->prepare("INSERT INTO users (name,email,phone,password) VALUES (?,?,?,?);");
+
+            $insertQuery->bind_param("ssss",$fullName,$email,$phone,$password);
+            
+            $result=$insertQuery->execute();
+            
+            if($result){
+               
+                echo "<div class=' alert alert-success' > User created succesfully.</div>";
+                header( "Refresh:0.01; url=welcome.php", true, 303);//I added this line because login.php does not work
+            }
+            else{
+               
+                echo "<div class=' alert alert-success' >something went wrong!</div>";
+            }
+
+            $insertQuery->close();
+        }
+    }
+
+}
+$query->close();
+
+//close db connection
+mysqli_close($db);
+
+}
+?>
+
+
+<style>
+    .link{
+        text-decoration: none;
+        color: white;
+    }
+</style>

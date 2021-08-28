@@ -16,29 +16,3 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-// For Reserve Page
-// var cars = document.querySelectorAll('.reserve');
-// for(i=0; i<cars.length; i++){
-//  cars[i].addEventListener("click",function(){
-//    console.log("hello");
-  
-//  })
-// }
-
-//For Reservation Page 
-
-// var date1 = document.getElementById("dropOffDate").value;
-// var date2 = document.getElementById("pickUpDate").value;
-// var reserve =document.getElementById("reserve");
-// var difference = date1.getDate() - date2.getDate();
-// alert (date1);
-
-// reserve.addEventListener("click", function(){
-     
-     
-//    alert (date1);
-//   //  alert (date2);
-
-// }
-// );
-

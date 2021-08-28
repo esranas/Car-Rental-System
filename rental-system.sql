@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2021 at 12:18 PM
+-- Generation Time: Aug 26, 2021 at 11:50 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -58,6 +58,7 @@ INSERT INTO `cars` (`carID`, `car name`, `carDetails`, `price`, `image`) VALUES
 CREATE TABLE `reservation` (
   `reservationID` int(11) NOT NULL,
   `carID` int(11) NOT NULL,
+  `decor` varchar(200) NOT NULL,
   `purpose` varchar(50) NOT NULL,
   `pickupdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,8 +67,10 @@ CREATE TABLE `reservation` (
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`reservationID`, `carID`, `purpose`, `pickupdate`) VALUES
-(23, 8, 'Wedding', '2021-08-08');
+INSERT INTO `reservation` (`reservationID`, `carID`, `decor`, `purpose`, `pickupdate`) VALUES
+(31, 4, '', 'photoshoot', '2021-08-01'),
+(32, 8, '', 'Wedding', '2021-10-06'),
+(33, 8, 'decorate', 'Wedding', '2021-08-12');
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `phone`, `password`, `email`) VALUES
 (1, 'Esra Nas', '05435379142', '1234567', 'esra_nefel@hotmail.com'),
-(2, 'laika alper', '05565379142', '123456789', 'laikalper@gmail.com');
+(2, 'laika alper', '05565379142', '123456789', 'laikalper@gmail.com'),
+(3, 'sümeyra Çam', '05875379142', 'qwertyuıo', 'sumeyracam@gmail.com'),
+(4, 'Begum Bolat', '05435879142', '2158736', 'begumtest@gmail.com'),
+(5, 'leyla coskun', 'leylacoskun@', '123456789', 'leylacoskun@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -128,13 +134,13 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `reservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
